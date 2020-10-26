@@ -3,7 +3,7 @@ const axios = require("axios");
 const router = require("express").Router();
 
 // API Routes
-router.get("/reports", (req, res) => {
+router.get("/api/reports", (req, res) => {
 
     const queryURL = `http://newsapi.org/v2/top-headlines?country=us&apiKey=${process.env.NEWS_KEY}`;
   
