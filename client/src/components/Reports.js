@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import API from "../utils/API";
+import { useStoreContext } from "../utils/GlobalState";
+import { LOADING, SET_REPORTS } from "../utils/actions";
 
 function Reports() {
 
-    const [reports, setReports] = useState([]);
+    const [state, dispatch] = useStoreContext();
+    // const [reports, setReports] = useState([]);
 
     useEffect(() => {
         getReports();
@@ -13,7 +16,11 @@ function Reports() {
         API.getReports()
         .then((res) => {
             console.log(res.data.articles);
-            setReports(res.data.articles);
+            // setReports(res.data.articles);
+            dispatch({
+                type: SET_REPORTS,
+                reports: res.data.articles,
+            });
         })
         .catch((err) => console.log(err));
     }
@@ -32,7 +39,7 @@ function Reports() {
     return(
         <div>
             {/* Report links go here */}
-            { renderReportLinks(reports) }
+            {/* { renderReportLinks(state.reports) } */}
         </div>
     )
 }
