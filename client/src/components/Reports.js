@@ -6,7 +6,6 @@ import { LOADING, SET_REPORTS } from "../utils/actions";
 function Reports() {
 
     const [state, dispatch] = useStoreContext();
-    // const [reports, setReports] = useState([]);
 
     useEffect(() => {
         getReports();
@@ -15,8 +14,8 @@ function Reports() {
     function getReports() {
         API.getReports()
         .then((res) => {
-            console.log(res.data.articles);
-            // setReports(res.data.articles);
+            // console.log(res.data.articles);
+            
             dispatch({
                 type: SET_REPORTS,
                 reports: res.data.articles,
@@ -39,7 +38,7 @@ function Reports() {
     return(
         <div>
             {/* Report links go here */}
-            {/* { renderReportLinks(state.reports) } */}
+            { renderReportLinks(state.reports) }
         </div>
     )
 }
