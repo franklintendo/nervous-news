@@ -14,11 +14,17 @@ function Reports() {
     function getReports() {
         API.getReports()
         .then((res) => {
-            // console.log(res.data.articles);
-            
+
+            // Create array that filters out articles that don't have an accompanying image
+            const reports = res.data.articles.filter(article => {
+                if (article.urlToImage !== null) {
+                    return article;
+                }
+            });
+
             dispatch({
                 type: SET_REPORTS,
-                reports: res.data.articles,
+                reports: reports,
             });
         })
         .catch((err) => console.log(err));
