@@ -27,7 +27,7 @@ const reducer = (state, action) => {
                     description: action.currentReport.description,
                     url: action.currentReport.url,
                     image: action.currentReport.image,
-                    date: action.currentReport.data,
+                    date: action.currentReport.date,
                     content: action.currentReport.content,
                 },
                 loading: false,

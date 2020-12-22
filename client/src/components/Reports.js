@@ -46,7 +46,18 @@ function Reports() {
 
     function renderReportLinks(reports) {
         return reports.map((report, index) => {
-            return <ReportLink key={index} image={report.urlToImage} title={report.title}></ReportLink>;
+            console.log(report);
+            return <ReportLink 
+                key={index} 
+                image={report.urlToImage} 
+                title={report.title}
+                source={report.source.name}
+                author={report.author}
+                description={report.description}
+                url={report.url}
+                date={report.publishedAt}
+                content={report.content}
+                ></ReportLink>;
         });
     }
 
