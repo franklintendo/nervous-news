@@ -2,12 +2,13 @@ import React from "react";
 import { Col } from "react-bootstrap";
 import { useStoreContext } from "../utils/GlobalState";
 import { SET_CURRENT_REPORT } from "../utils/actions";
-
+import { useHistory } from "react-router-dom";
 
 
 function ReportLink(props) {
 
     const [state, dispatch] = useStoreContext();
+    let history = useHistory();
 
     function setCurrentReport() {
         dispatch({
@@ -23,6 +24,8 @@ function ReportLink(props) {
                 content: props.content,
             }
         });
+        
+        return history.push(`/news-bulletin`);
     }
 
     return(

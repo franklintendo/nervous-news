@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import API from "../utils/API";
 import { useStoreContext } from "../utils/GlobalState";
 import { LOADING, SET_REPORTS } from "../utils/actions";
@@ -33,10 +33,10 @@ function Reports() {
         .catch((err) => console.log(err));
     }
 
-    function sayReportTitle(title) {
-        const to_speak = new SpeechSynthesisUtterance(title);
-        window.speechSynthesis.speak(to_speak);
-    }
+    // function sayReportTitle(title) {
+    //     const to_speak = new SpeechSynthesisUtterance(title);
+    //     window.speechSynthesis.speak(to_speak);
+    // }
 
     // function renderReportLinks(reports) {
     //     return reports.map((report, index) => {
@@ -46,7 +46,7 @@ function Reports() {
 
     function renderReportLinks(reports) {
         return reports.map((report, index) => {
-            console.log(report);
+            
             return <ReportLink 
                 key={index} 
                 image={report.urlToImage} 
