@@ -10,6 +10,9 @@ function Bulletin() {
         const title_speak = new SpeechSynthesisUtterance(report.title);
         const description_speak = new SpeechSynthesisUtterance(report.description);
         const content_speak = new SpeechSynthesisUtterance(report.content);
+        title_speak.pitch = 1;
+        description_speak.pitch = 1.5;
+        content_speak.pitch = 2;
         window.speechSynthesis.speak(title_speak);
         window.speechSynthesis.speak(description_speak);
         window.speechSynthesis.speak(content_speak);
