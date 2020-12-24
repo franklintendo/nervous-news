@@ -11,6 +11,7 @@ function Reports() {
     const [state, dispatch] = useStoreContext();
 
     useEffect(() => {
+        window.speechSynthesis.cancel();
         getReports();
     }, []);
 
