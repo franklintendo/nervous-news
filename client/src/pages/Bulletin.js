@@ -13,6 +13,7 @@ function Bulletin() {
         title_speak.pitch = 1;
         description_speak.pitch = 1.5;
         content_speak.pitch = 2;
+        content_speak.rate = 1.2;
 
         title_speak.onstart = function(event) {
             document.getElementById('report-caption').innerHTML = event.utterance.text;
